@@ -38,7 +38,7 @@ public class DbInitializer
                     Make = "Ford",
                     Model = "GT",
                     Color = "White",
-                    Mileage = 50000,
+                    Mileage = 99999,
                     Year = 2020,
                     ImageUrl = "https://cdn.pixabay.com/photo/2016/05/06/16/32/car-1376190_960_720.jpg"
                 }
@@ -83,7 +83,7 @@ public class DbInitializer
             {
                 Id = Guid.Parse("155225c1-4448-4066-9886-6786536e05ea"),
                 Status = Status.ReserveNotMet,
-                ReservePrice = 50000,
+                ReservePrice = 9999,
                 Seller = "tom",
                 AuctionEnd = DateTime.UtcNow.AddDays(-10),
                 Item = new Item
@@ -127,7 +127,7 @@ public class DbInitializer
                     Make = "Ferrari",
                     Model = "Spider",
                     Color = "Red",
-                    Mileage = 50000,
+                    Mileage = 99999,
                     Year = 2015,
                     ImageUrl = "https://cdn.pixabay.com/photo/2017/11/09/01/49/ferrari-458-spider-2932191_960_720.jpg"
                 }
@@ -137,7 +137,7 @@ public class DbInitializer
             {
                 Id = Guid.Parse("47111973-d176-4feb-848d-0ea22641c31a"),
                 Status = Status.Live,
-                ReservePrice = 150000,
+                ReservePrice = 999999,
                 Seller = "alice",
                 AuctionEnd = DateTime.UtcNow.AddDays(13),
                 Item = new Item
@@ -145,7 +145,7 @@ public class DbInitializer
                     Make = "Ferrari",
                     Model = "F-430",
                     Color = "Red",
-                    Mileage = 5000,
+                    Mileage = 85744,
                     Year = 2022,
                     ImageUrl = "https://cdn.pixabay.com/photo/2017/11/08/14/39/ferrari-f430-2930661_960_720.jpg"
                 }
