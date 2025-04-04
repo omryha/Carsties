@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useShallow } from 'zustand/shallow';
-import { getData } from '../actions/auctioActions';
+import { getData } from '../actions/auctionActions';
 import AppPagination from '../components/AppPagination';
 import { useParamsStore } from '../hooks/useParamsStore';
 import { Auction, PagedResult } from '../types';
