@@ -28,7 +28,7 @@ COPY Carsties.sln .
 COPY src src
 RUN dotnet restore Carsties.sln \
     && dotnet publish src/AuctionService/AuctionService.csproj \
-    -c Release -o /app/out
+    -c Release -o /app/src/out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
