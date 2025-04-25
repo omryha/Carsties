@@ -15,23 +15,17 @@ COPY src/IdentityService/IdentityService.csproj src/IdentityService/IdentityServ
 # COPY tests/AuctionService.UnitTests/AuctionService.UnitTests.csproj tests/AuctionService.UnitTests/AuctionService.UnitTests.csproj
 # COPY tests/AuctionService.IntegrationTests/AuctionService.IntegrationTests.csproj tests/AuctionService.IntegrationTests/AuctionService.IntegrationTests.csproj
 
-# install system protoc
-RUN apt-get update \
-    && apt-get install -y protobuf-compiler \
-    && rm -rf /var/lib/apt/lists/*
+# Restore package deps
+RUN dotnet restore Carsties.sln
 
-# point MSBuild at the system protoc
-ENV PROTOBUF_PROTOC=/usr/bin/protoc
-
-# restore & publish
-COPY Carsties.sln .
-COPY src src
-RUN dotnet restore Carsties.sln \
-    && dotnet publish src/AuctionService/AuctionService.csproj \
-    -c Release -o /app/src/out
+# Copy the app folders over
+COPY src/NotificationService src/NotificationService
+COPY src/Contracts src/Contracts
+WORKDIR /app/src/NotificationService
+RUN dotnet publish -c Release -o /app/src/out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/src/out .
-ENTRYPOINT [ "dotnet", "AuctionService.dll" ]
+ENTRYPOINT [ "dotnet", "NotificationService.dll" ]

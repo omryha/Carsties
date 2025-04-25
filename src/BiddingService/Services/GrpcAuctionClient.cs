@@ -31,7 +31,7 @@ public class GrpcAuctionClient
                 ID = reply.Auction.Id,
                 AuctionEnd = DateTime.Parse(reply.Auction.AuctionEnd),
                 Seller = reply.Auction.Seller,
-                ReservePrice = reply.Auction.ReservedPrice
+                ReservePrice = reply.Auction.ReservePrice
             };
 
             return auction;
